@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct Articles: Decodable {
+    let articles: [Article]
+}
+
 struct Article: Decodable {
-    
+    let author: String?
+    let title: String?
+    let description: String?
 }
