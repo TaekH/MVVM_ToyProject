@@ -20,6 +20,7 @@
 		2AF92DE229A4A6240073A88E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DE129A4A6240073A88E /* Article.swift */; };
 		2AF92DE429A4A6AE0073A88E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DE329A4A6AE0073A88E /* NewsViewModel.swift */; };
 		2AF92DE829A603210073A88E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DE729A603210073A88E /* NetworkService.swift */; };
+		2AF92DEB29A6284B0073A88E /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DEA29A6284B0073A88E /* NewsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2AF92DE129A4A6240073A88E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		2AF92DE329A4A6AE0073A88E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		2AF92DE729A603210073A88E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		2AF92DEA29A6284B0073A88E /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		2AF92DDB29A317EC0073A88E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2AF92DE929A627B40073A88E /* ViewComponents */,
 				2AF92DAE29A3157F0073A88E /* Main.storyboard */,
 				2AF92DAC29A3157F0073A88E /* ViewController.swift */,
 			);
@@ -185,6 +188,14 @@
 				2AF92DE729A603210073A88E /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		2AF92DE929A627B40073A88E /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2AF92DEA29A6284B0073A88E /* NewsTableViewCell.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +331,7 @@
 			files = (
 				2AF92DB329A3157F0073A88E /* MVVM_ToyProject.xcdatamodeld in Sources */,
 				2AF92DE429A4A6AE0073A88E /* NewsViewModel.swift in Sources */,
+				2AF92DEB29A6284B0073A88E /* NewsTableViewCell.swift in Sources */,
 				2AF92DAD29A3157F0073A88E /* ViewController.swift in Sources */,
 				2AF92DA929A3157F0073A88E /* AppDelegate.swift in Sources */,
 				2AF92DE229A4A6240073A88E /* Article.swift in Sources */,
