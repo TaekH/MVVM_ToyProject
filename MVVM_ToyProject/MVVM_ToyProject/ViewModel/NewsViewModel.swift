@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 struct NewsViewModel {
     let articles: [Article]
 }
