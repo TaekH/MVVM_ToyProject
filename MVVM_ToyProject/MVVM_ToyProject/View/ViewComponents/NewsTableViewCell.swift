@@ -69,7 +69,8 @@ private extension NewsTableViewCell {
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15)
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

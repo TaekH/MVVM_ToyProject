@@ -12,7 +12,8 @@ final class NewsViewController: UIViewController {
     private var newsVM: NewsViewModel!
     private var newsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.rowHeight = 150
+        tableView.estimatedRowHeight = 150
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
     
@@ -33,14 +34,12 @@ final class NewsViewController: UIViewController {
         }
     }
 }
-
 private extension NewsViewController {
     func setNewsView() {
         newsTableView.dataSource = self
         newsTableView.register(NewsTableViewCell.classForCoder(), forCellReuseIdentifier: "News")
         self.view.addSubview(newsTableView)
         setNewsLayout()
-        
     }
     
 }
@@ -57,6 +56,7 @@ private extension NewsViewController {
 }
 
 extension NewsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let newVM = newsVM {
             return newVM.articleCount
