@@ -70,6 +70,7 @@ extension NewsViewController: UITableViewDataSource {
             let articleVM = newsVM.articleIndex(indexPath.row)
             cell.titleLabel.text = articleVM.title
             cell.authorLabel.text = articleVM.author
+            cell.dataLabel.text = articleVM.publishedAt
             cell.descriptionLabel.text = articleVM.description
         }
         return cell

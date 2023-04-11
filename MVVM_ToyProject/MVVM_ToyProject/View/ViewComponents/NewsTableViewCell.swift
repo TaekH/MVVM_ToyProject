@@ -31,6 +31,13 @@ final class NewsTableViewCell: UITableViewCell {
         return label
     }()
     
+    lazy var dataLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 12, weight: .semibold)
+        label.textColor = .black
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setLayout()
@@ -60,8 +67,15 @@ private extension NewsTableViewCell {
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             authorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            authorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            authorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             authorLabel.widthAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        self.addSubview(dataLabel)
+        dataLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dataLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            dataLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5)
         ])
         
         self.addSubview(descriptionLabel)
@@ -69,7 +83,7 @@ private extension NewsTableViewCell {
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            descriptionLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 15),
             descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }

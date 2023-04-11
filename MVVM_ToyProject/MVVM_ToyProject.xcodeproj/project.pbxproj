@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A3C597929E5335200C6816D /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C597829E5335200C6816D /* NewsViewController.swift */; };
+		2A3C597C29E539D000C6816D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C597B29E539D000C6816D /* String+.swift */; };
 		2AF92DA929A3157F0073A88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DA829A3157F0073A88E /* AppDelegate.swift */; };
 		2AF92DAB29A3157F0073A88E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DAA29A3157F0073A88E /* SceneDelegate.swift */; };
 		2AF92DB029A3157F0073A88E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF92DAE29A3157F0073A88E /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		2A3C597829E5335200C6816D /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		2A3C597B29E539D000C6816D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		2AF92DA529A3157F0073A88E /* MVVM_ToyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_ToyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF92DA829A3157F0073A88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AF92DAA29A3157F0073A88E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A3C597A29E539C100C6816D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2A3C597B29E539D000C6816D /* String+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		2AF92D9C29A3157F0073A88E = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +186,7 @@
 		2AF92DE529A4A95D0073A88E /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				2A3C597A29E539C100C6816D /* Extension */,
 				2AF92DB429A315800073A88E /* Assets.xcassets */,
 				2AF92DB629A315800073A88E /* LaunchScreen.storyboard */,
 			);
@@ -329,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3C597C29E539D000C6816D /* String+.swift in Sources */,
 				2AF92DB329A3157F0073A88E /* MVVM_ToyProject.xcdatamodeld in Sources */,
 				2AF92DE429A4A6AE0073A88E /* NewsViewModel.swift in Sources */,
 				2AF92DEB29A6284B0073A88E /* NewsTableViewCell.swift in Sources */,
@@ -521,6 +533,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,6 +562,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
