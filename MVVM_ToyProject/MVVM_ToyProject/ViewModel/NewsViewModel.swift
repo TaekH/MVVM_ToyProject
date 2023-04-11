@@ -7,17 +7,13 @@
 
 import Foundation
 
-
-
 struct NewsViewModel {
     let articles: [Article]
 }
-
 extension NewsViewModel {
     var articleCount: Int {
         return articles.count
     }
-    
     func articleIndex(_ i: Int) -> ArticleViewModel {
         return ArticleViewModel(article: articles[i])
     }
@@ -26,7 +22,6 @@ extension NewsViewModel {
 struct ArticleViewModel {
     let article: Article
 }
-
 extension ArticleViewModel {
     var author: String? {
         return article.author
