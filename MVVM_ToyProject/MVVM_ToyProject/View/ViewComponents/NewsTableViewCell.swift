@@ -10,14 +10,14 @@ import UIKit
 final class NewsTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .bold)
+        label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textColor = .black
         return label
     }()
     
     lazy var authorLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .bold)
+        label.font = .systemFont(ofSize: 12, weight: .bold)
         label.textColor = .black
         return label
     }()
@@ -26,6 +26,8 @@ final class NewsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
         label.textColor = .black
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
@@ -49,16 +51,16 @@ private extension NewsTableViewCell {
         self.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            titleLabel.widthAnchor.constraint(equalToConstant: 200)
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
         ])
         
         self.addSubview(authorLabel)
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            authorLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 30),
-            authorLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor),
+            authorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            authorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             authorLabel.widthAnchor.constraint(equalToConstant: 100)
         ])
         
@@ -66,6 +68,7 @@ private extension NewsTableViewCell {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15)
         ])
     }
