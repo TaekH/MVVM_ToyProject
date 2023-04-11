@@ -15,7 +15,10 @@ extension NewsViewModel {
         return articles.count
     }
     func articleIndex(_ i: Int) -> ArticleViewModel {
-        return ArticleViewModel(article: articles[i])
+        return ArticleViewModel(article: sortArticle()[i])
+    }
+    func sortArticle() -> [Article] {
+        articles.sorted(by: { $0.publishedAt?.formatStringToFullDate() ?? Date() < $1.publishedAt?.formatStringToFullDate() ?? Date()})
     }
 }
 
@@ -23,13 +26,21 @@ struct ArticleViewModel {
     let article: Article
 }
 extension ArticleViewModel {
-    var author: String? {
-        return article.author
+    var author: String {
+        guard let author = article.author else { return "" }
+        return author
     }
-    var title: String? {
-        return article.title
+    var title: String {
+        guard let title = article.title else { return "" }
+        return title
     }
     var description: String? {
-        return article.description
+        guard let description = article.description else { return "" }
+        return description
+    }
+    var publishedAt: String {
+        guard var publishedAt = article.publishedAt else { return "" }
+        publishedAt = publishedAt.replacingOccurrences(of: "T", with: " ")
+        return publishedAt.components(separatedBy: ["Z"]).joined()
     }
 }
