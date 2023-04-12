@@ -10,6 +10,7 @@ import UIKit
 final class NewsViewController: UIViewController {
     
     private var newsVM: NewsViewModel!
+    
     private var newsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.estimatedRowHeight = 150
@@ -17,9 +18,24 @@ final class NewsViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var titleView = TitleView()
+    
+    private var currentSortOption: SortOption = .down {
+        didSet {
+            switch currentSortOption {
+            case .up:
+                titleView.sortImage.image = UIImage(systemName: "arrow.up")
+            case .down:
+                titleView.sortImage.image = UIImage(systemName: "arrow.down")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpData()
+        setTitleLayout()
+        setTitleView()
         setNewsView()
     }
     
@@ -33,7 +49,14 @@ final class NewsViewController: UIViewController {
             }
         }
     }
+    
+    @objc func sortButtonPressed(_ sender: UIButton) {
+        currentSortOption = currentSortOption == .down ? .up : .down
+        newsVM.sortArticle(by: currentSortOption)
+        newsTableView.reloadData()
+    }
 }
+
 private extension NewsViewController {
     func setNewsView() {
         newsTableView.dataSource = self
@@ -42,17 +65,33 @@ private extension NewsViewController {
         setNewsLayout()
     }
     
+    func setTitleView() {
+        self.titleView.sortButton.addTarget(self, action: #selector(sortButtonPressed), for: .touchUpInside)
+    }
+    
 }
 private extension NewsViewController {
+    func setTitleLayout() {
+        view.addSubview(titleView)
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 65),
+            titleView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            titleView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            titleView.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
     func setNewsLayout() {
         newsTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            newsTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            newsTableView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10),
             newsTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             newsTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             newsTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
+    
 }
 
 extension NewsViewController: UITableViewDataSource {

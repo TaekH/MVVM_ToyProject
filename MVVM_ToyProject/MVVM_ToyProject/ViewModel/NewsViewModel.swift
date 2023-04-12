@@ -8,19 +8,29 @@
 import Foundation
 
 struct NewsViewModel {
-    let articles: [Article]
+    var articles: [Article]
 }
+enum SortOption {
+    case up
+    case down
+}
+
 extension NewsViewModel {
     var articleCount: Int {
         return articles.count
     }
     func articleIndex(_ i: Int) -> ArticleViewModel {
-        return ArticleViewModel(article: sortArticle()[i])
+        return ArticleViewModel(article: articles[i])
     }
-    func sortArticle() -> [Article] {
-        articles.sorted(by: { $0.publishedAt?.formatStringToFullDate() ?? Date() < $1.publishedAt?.formatStringToFullDate() ?? Date()})
+    mutating func sortArticle(by option: SortOption) {
+        switch option {
+        case .up:
+            articles = articles.sorted(by: { $0.publishedAt?.formatStringToFullDate() ?? Date() < $1.publishedAt?.formatStringToFullDate() ?? Date()})
+        case .down:
+            articles = articles.sorted(by: { $0.publishedAt?.formatStringToFullDate() ?? Date() > $1.publishedAt?.formatStringToFullDate() ?? Date()})
+        }
     }
-}
+    }
 
 struct ArticleViewModel {
     let article: Article
