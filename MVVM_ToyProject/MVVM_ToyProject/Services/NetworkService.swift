@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkService {
     func getArticles(completion: @escaping ([Article]?) -> Void ){
-        guard let url = URL(string: "https://newsapi.org/v2/everything?q=apple&from=2023-04-10&to=2023-04-10&sortBy=popularity&apiKey=1d54e43914a942ccb07949ebf0d00e3d") else { return }
+        guard let url = URL(string: "https://newsapi.org/v2/everything?q=apple&from=2023-05-14&to=2023-05-14&sortBy=popularity&apiKey=1d54e43914a942ccb07949ebf0d00e3d") else { return }
         
         URLSession.shared.dataTask(with: url){ data , response, error in
             if let error = error {
