@@ -10,10 +10,6 @@ import Foundation
 struct NewsViewModel {
     var articles: [Article]
 }
-enum SortOption {
-    case up
-    case down
-}
 
 extension NewsViewModel {
     var articleCount: Int {
@@ -22,15 +18,17 @@ extension NewsViewModel {
     func articleIndex(_ i: Int) -> ArticleViewModel {
         return ArticleViewModel(article: articles[i])
     }
-    mutating func sortArticle(by option: SortOption) {
+    mutating func sortArticle(by option: SortOption) -> SortOption {
+        let option: SortOption = option == .down ? .up : .down
         switch option {
         case .up:
             articles = articles.sorted(by: { $0.publishedAt?.formatStringToFullDate() ?? Date() < $1.publishedAt?.formatStringToFullDate() ?? Date()})
         case .down:
             articles = articles.sorted(by: { $0.publishedAt?.formatStringToFullDate() ?? Date() > $1.publishedAt?.formatStringToFullDate() ?? Date()})
         }
+        return option
     }
-    }
+}
 
 struct ArticleViewModel {
     let article: Article
@@ -53,4 +51,9 @@ extension ArticleViewModel {
         publishedAt = publishedAt.replacingOccurrences(of: "T", with: " ")
         return publishedAt.components(separatedBy: ["Z"]).joined()
     }
+}
+
+enum SortOption {
+    case up
+    case down
 }

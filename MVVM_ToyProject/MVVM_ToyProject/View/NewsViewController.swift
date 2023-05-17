@@ -51,8 +51,7 @@ final class NewsViewController: UIViewController {
     }
     
     @objc func sortButtonPressed(_ sender: UIButton) {
-        currentSortOption = currentSortOption == .down ? .up : .down
-        newsVM.sortArticle(by: currentSortOption)
+        currentSortOption = newsVM.sortArticle(by: currentSortOption)
         newsTableView.reloadData()
     }
 }
