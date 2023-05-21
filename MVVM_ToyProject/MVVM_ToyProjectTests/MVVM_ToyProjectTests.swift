@@ -45,4 +45,14 @@ final class MVVM_ToyProjectTests: XCTestCase {
         let expectation = 3
         XCTAssertEqual(result, expectation)
     }
+    
+    func testPublishedAt() {
+        let mockArticle = Article(author: "a", title: "b", description: "c", publishedAt: "2023-05-14T20:59:59Z")
+        let mockArticleVM = ArticleViewModel(article: mockArticle)
+        
+        let result = mockArticleVM.publishedAt
+        let expectation = "2023-05-14 20:59:59"
+        XCTAssertEqual(result, expectation)
+    }
+
 }
