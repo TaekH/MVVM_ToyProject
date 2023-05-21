@@ -32,5 +32,17 @@ final class MVVM_ToyProjectTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testArticlesCount() {
+        let mockNews = [
+            Article(author: "a", title: "b", description: "c", publishedAt: "d"),
+            Article(author: "a", title: "b", description: "c", publishedAt: "d"),
+            Article(author: "a", title: "b", description: "c", publishedAt: "d")
+            ]
+        let mockNewsVM = NewsViewModel(articles: mockNews)
 
+        let result = mockNewsVM.articleCount
+        let expectation = 3
+        XCTAssertEqual(result, expectation)
+    }
 }
