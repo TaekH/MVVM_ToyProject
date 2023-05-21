@@ -55,4 +55,19 @@ final class MVVM_ToyProjectTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
 
+    func testNewsToArticleViewModel() {
+        let mockNews = [
+            Article(author: "a", title: "b", description: "c", publishedAt: "2023-05-14T20:59:59Z"),
+            Article(author: "a", title: "b", description: "c", publishedAt: "d"),
+            Article(author: "a", title: "b", description: "c", publishedAt: "d")
+            ]
+        
+        let mockNewsVM = NewsViewModel(articles: mockNews)
+        
+        let result = mockNewsVM.articleIndex(0)
+        XCTAssertEqual(result.author, "a")
+        XCTAssertEqual(result.title, "b")
+        XCTAssertEqual(result.description, "c")
+        XCTAssertEqual(result.publishedAt, "2023-05-14 20:59:59")
+    }
 }
